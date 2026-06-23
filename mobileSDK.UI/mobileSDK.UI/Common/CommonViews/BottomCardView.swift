@@ -1,0 +1,195 @@
+//
+//  BottomCardView.swift
+//  mobileSDK.UI
+//
+//  Created by Etoedto on 23.06.2022.
+//
+
+import SwiftUI
+import Combine
+
+struct BottomCardView<Content: View>: View {
+    let content: Content
+    var cardShown: Bool
+    let dissmissClosure: () -> Void
+    let screenProportion: CGFloat
+
+    @State private var allHeight: CGFloat = UIScreen.main.bounds.height
+
+    init(
+        cardShown: Bool = false,
+        screenProportion: CGFloat = 0.9,
+        dissmissClosure: @escaping () -> Void = {},
+        @ViewBuilder content: () -> Content
+    ) {
+        self.cardShown = cardShown
+        self.screenProportion = screenProportion
+        self.dissmissClosure = dissmissClosure
+        self.content = content()
+    }
+
+    private var spacerHeight: CGFloat {
+        return allHeight * (1.0 - screenProportion)
+    }
+
+    var body: some View {
+        ZStack {
+            GeometryReader { reader in
+                Spacer().onAppear {
+                    allHeight = reader.size.height
+                }
+                .ignoresSafeArea()
+            }
+            .background(.black)
+            .opacity(cardShown ? 0.6 : 0)
+            .animation(Animation.easeIn)
+            .ignoresSafeArea()
+            .onTapGesture {
+                dissmissClosure()
+            }
+            VStack(spacing: .zero) {
+                Spacer()
+                    .frame(height: spacerHeight + cardOffset)
+                content
+                    .background(UIScheme.color.background)
+                    .clipShape(
+                        .rect(
+                            topLeadingRadius: UIScheme.dimension.backgroundSheetCornerRadius,
+                            topTrailingRadius: UIScheme.dimension.backgroundSheetCornerRadius
+                        )
+                    )
+                    .frame(maxHeight: cardShown ? .infinity : 0)
+            }
+            .animation(.default, value: cardOffset)
+        }
+        .ignoresSafeArea()
+    }
+
+    var cardOffset: CGFloat {
+        cardShown ? 0 : allHeight
+    }
+}
+
+struct BottomCardViewContent<Header: View, ScrollableContent: View>: View {
+    let content: ScrollableContent
+    let header: Header
+
+    init(
+        @ViewBuilder header: () -> Header,
+         @ViewBuilder content: () -> ScrollableContent
+    ) {
+        self.header = header()
+        self.content = content()
+    }
+
+    var body: some View {
+        VStack(spacing: .zero) {
+            header
+            ScrollViewReader { proxy in
+                ScrollView {
+                    content
+                }
+                .modifier(KeyboardAwareModifier(scrollProxy: proxy))
+            }
+        }
+        .listStyle(.plain)
+    }
+}
+
+struct KeyboardAwareModifier: ViewModifier {
+    let scrollProxy: ScrollViewProxy?
+
+    @State private var keyboardHeight: CGFloat = 0
+
+    init(scrollProxy: ScrollViewProxy? = nil) {
+        self.scrollProxy = scrollProxy
+    }
+
+    private var keyboardHeightPublisher: AnyPublisher<CGFloat, Never> {
+        Publishers.Merge(
+            NotificationCenter.default
+                .publisher(for: UIResponder.keyboardWillShowNotification)
+                .compactMap { $0.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue }
+                .map { $0.cgRectValue.height },
+            NotificationCenter.default
+                .publisher(for: UIResponder.keyboardWillHideNotification)
+                .map { _ in CGFloat(0) }
+        )
+        .eraseToAnyPublisher()
+    }
+
+    func body(content: Content) -> some View {
+        content
+            .padding(.bottom, keyboardHeight)
+            .onReceive(keyboardHeightPublisher) { newHeight in
+                withAnimation(.easeOut(duration: 0.25)) {
+                    self.keyboardHeight = newHeight
+                }
+
+                if newHeight > 0, let proxy = scrollProxy {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.25) {
+                        withAnimation(.easeOut(duration: 0.25)) {
+                            proxy.scrollTo("payButton", anchor: .bottom)
+                        }
+                    }
+                }
+            }
+    }
+}
+
+#if DEBUG
+
+struct BottomCardView_Previews: PreviewProvider {
+    struct BottomCardViewExample: View {
+        @State var cardShown: Bool = false
+        @State var expanded: Bool = false
+
+        var body: some View {
+            ZStack {
+                Color.red
+                BottomCardView(cardShown: cardShown, screenProportion: 0.9) {
+                    BottomCardViewContent {
+                        HStack {
+                            Text("Screen header")
+                                .font(.custom(.secondary(size: .l, weight: .bold)))
+                                .padding()
+                            Spacer()
+                            CloseButton {
+                                cardShown = false
+                            }
+                            .padding()
+                        }
+                        .padding()
+                        RedactedView()
+                            .frame(height: 100)
+                        PaymentMethodCell(
+                            methodTitle: "Test",
+                            methodImage: IR.card.image,
+                            isExpanded: expanded,
+                            content: RedactedView()
+                                .frame(height: 100)
+                        ) {
+                            expanded
+                                .toggle()
+                        }
+                    } content: {
+                        RedactedView().frame(height: 50).padding(2)
+                        RedactedView().frame(height: 50).padding(2)
+                        RedactedView().frame(height: 50).padding(2)
+                    }
+                }
+                .onAppear {
+                    cardShown = true
+                }
+            }
+        }
+    }
+
+    static var previews: some View {
+        BottomCardViewExample()
+            .ignoresSafeArea()
+            .previewDisplayName("Fixed")
+    }
+}
+
+#endif

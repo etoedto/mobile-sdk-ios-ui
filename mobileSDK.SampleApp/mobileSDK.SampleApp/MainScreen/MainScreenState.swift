@@ -1,0 +1,89 @@
+//
+//  MainScreenState.swift
+//  SampleApp
+//
+//  Created by Etoedto on 22.08.2022.
+//
+
+import Foundation
+import EtoedtoSDK
+import SwiftUI
+
+struct PaymentData {
+    var primaryBrandColor: Color?
+    var secondaryBrandColor: Color?
+    var image: UIImage?
+    var projectId: Int
+    var paymentId: String
+    var paymentAmount: Int
+    var paymentCurrency: String
+    var customerId: String
+    var paymentDescription: String
+    var languageCode: String
+    var forcePaymentMethod: ForcePaymentMethods
+    var forcePaymentMethodCustomValue: String = ""
+    var hideSavedWallets: Bool
+    var hideSuccessFinalPage: Bool
+    var hideDeclineFinalPage: Bool
+    var secretKey: String
+    var merchantId: String
+    var merchantName: String
+    var mockModeType: MockModeType
+    var regionCode: String
+    var storedCardType: String
+
+    var applePayMerchantID: String = "merchant.etoedtoDemo.sdk"
+    var applePayDescription: String = "Apple Pay Description"
+    var applePayCountryCode: String = "US"
+
+    var sendThreeDSecParams: Bool = false
+    var threeDSecParams = ThreeDSecureInfo.default
+
+    var sendRecurrentData: Bool = false
+    var recurrentData = RecurrentData(register: true)
+}
+
+enum ForcePaymentMethods: String, CaseIterable, Identifiable {
+    case customValue
+    case none
+    case card
+    case neteller_wallet = "neteller-wallet"
+    case qiwi
+    case skrill
+    case doku
+    case mcash
+    case boost
+    case bigccash
+    case alipay
+    case qiwi_kz = "qiwi-kz"
+    case atf24
+    case webmoney_light = "webmoney-light"
+    case webmoney
+    case google_pay_host
+    case apple_pay_core
+    case paypal_wallet = "paypal-wallet"
+    var id: Self { self }
+}
+
+extension MockModeType: CaseIterable, Identifiable, CustomStringConvertible {
+    public var description: String {
+        switch self {
+        case .disabled:
+            return "disabled"
+        case .success:
+            return "success"
+        case .decline:
+            return "decline"
+        }
+    }
+
+    public static var allCases: [MockModeType] {
+        return [.decline, .success, .disabled]
+    }
+
+    public var id: Self { self }
+}
+
+extension AdditionalFieldType: Identifiable {
+    public var id: Self { self }
+}

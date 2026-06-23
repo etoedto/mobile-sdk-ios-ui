@@ -1,0 +1,48 @@
+name: Release Build
+
+# Builds the etoedtoSDK.xcframework automatically:
+#   - on every merge (push) to main  -> uploads the zip as a workflow artifact
+#   - on a version tag (e.g. 3.10.0) -> also publishes it as a GitHub Release asset
+#     so the URL referenced by EtoedtoSDK_UI.podspec / the SPM url: target resolves.
+
+on:
+  push:
+    branches: [ "main" ]
+    tags: [ "*" ]
+    paths-ignore:
+      - '**.md'
+
+permissions:
+  contents: write
+
+jobs:
+  build-xcframework:
+    runs-on: macos-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Select Xcode
+        uses: maxim-lobanov/setup-xcode@v1
+        with:
+          xcode-version: latest-stable
+
+      - name: Resolve Swift packages
+        run: xcodebuild -resolvePackageDependencies -workspace mobileSDK.xcworkspace -scheme etoedtoSDK
+
+      - name: Build xcframework
+        run: ./buildSDK.sh etoedtoSDK
+
+      - name: Upload build artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: etoedtoSDK-xcframework
+          path: etoedtoSDK.xcframework.zip
+          if-no-files-found: error
+
+      - name: Publish GitHub Release (tags only)
+        if: startsWith(github.ref, 'refs/tags/')
+        uses: softprops/action-gh-release@v2
+        with:
+          files: etoedtoSDK.xcframework.zip
+          fail_on_unmatched_files: true

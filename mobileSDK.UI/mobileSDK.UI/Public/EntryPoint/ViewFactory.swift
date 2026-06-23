@@ -1,0 +1,127 @@
+//
+//  ViewFactory.swift
+//  mobileSDK.UI
+//
+//  Created by Etoedto on 07.07.2022.
+//
+
+import SwiftUI
+import Combine
+
+public struct ViewFactory {
+    public static func assembleRootView(
+        paymentOptions: PaymentOptions,
+        initPublisher: AnyPublisher<InitEvent, CoreError>,
+        onDismiss completion: @escaping PaymentFlowCompletion
+    ) -> some View {
+        serviceLocator.addService(instance: TranslationsManager())
+
+        if paymentOptions.isDarkThemeOn {
+            UIScheme.color = DarkPalette(
+                brandPrimary: paymentOptions.primaryBrandColorOverride,
+                brandSecondary: paymentOptions.secondaryBrandColorOverride
+            )
+        } else {
+            UIScheme.color = LightPalette(
+                brandPrimary: paymentOptions.primaryBrandColorOverride,
+                brandSecondary: paymentOptions.secondaryBrandColorOverride
+            )
+        }
+
+        let rootViewModel = RootViewModel(
+            paymentOptions: paymentOptions,
+            futureData: initPublisher,
+            onFlowFinished: completion
+        )
+        
+        return RootView(viewModel: rootViewModel)
+            .ignoresSafeArea(.all, edges: .all)
+    }
+
+    internal static func assembleInitialLoadingScreen<Model: RootViewModelProtocol>(
+        parentModel: Model
+    ) -> some View {
+        InitialLoadingScreen(viewModel: InitialLoadingScreenViewModel(parentViewModel: parentModel))
+    }
+
+    internal static func assemblePaymentMethodsScreen<Model: RootViewModelProtocol>(
+        parentModel: Model
+    ) -> some View {
+        PaymentMethodsScreen(viewModel: PaymentMethodsScreenViewModel(parentViewModel: parentModel))
+    }
+
+    internal static func assembleCustomerFieldsScreen<Model: RootViewModelProtocol>(
+        parentModel: Model
+    ) -> some View {
+        CustomerFieldsScreen(viewModel: CustomerFieldsScreenModel(parentViewModel: parentModel))
+    }
+
+    internal static func assembleClarificationFieldsScreen<Model: RootViewModelProtocol>(
+        parentModel: Model
+    ) -> some View {
+        ClarificationFieldsScreen(viewModel: ClarificationFieldsScreenModel(parentViewModel: parentModel))
+    }
+
+    internal static func assembleLoadingScreen<Model: RootViewModelProtocol>(
+        parentModel: Model
+    ) -> some View {
+        LoadingScreen(viewModel: LoadingScreenViewModel(parentViewModel: parentModel))
+    }
+
+    internal static func assembleThreeDSPageScreen<Model: RootViewModelProtocol>(
+        parentModel: Model
+    ) -> some View {
+        ThreeDSecureScreen(viewModel: ThreeDSecureScreenViewModel(parentViewModel: parentModel))
+    }
+
+    internal static func assembleAPSPageScreen<Model: RootViewModelProtocol>(
+        parentModel: Model
+    ) -> some View {
+        ApsScreen(viewModel: ApsScreenViewModel(parentViewModel: parentModel))
+    }
+
+    internal static func assembleSbpQrScreen<Model: RootViewModelProtocol>(
+        parentModel: Model
+    ) -> some View {
+        let qrData = parentModel.state.sbpQrData ?? ""
+        let paymentMethod = parentModel.state.sbpPaymentMethod
+        return SbpQrScreen(
+            qrData: qrData,
+            paymentMethod: paymentMethod,
+            paymentOptions: parentModel.state.paymentOptions,
+            onLinkTap: { url in
+                parentModel.dispatch(intent: .sbpQrScreenIntent(.openWebView(url)))
+            },
+            onClose: {
+                parentModel.dispatch(intent: .paymentMethodsScreenIntent(.close))
+            }
+        )
+    }
+
+    internal static func assembleSbpWebViewScreen<Model: RootViewModelProtocol>(
+        parentModel: Model
+    ) -> some View {
+        let webViewData = parentModel.state.sbpWebViewData ?? ""
+        let paymentMethod = parentModel.state.sbpPaymentMethod
+        return SbpWebViewScreen(
+            webViewData: webViewData,
+            paymentMethod: paymentMethod,
+            paymentOptions: parentModel.state.paymentOptions,
+            onClose: {
+                parentModel.dispatch(intent: .paymentMethodsScreenIntent(.close))
+            }
+        )
+    }
+
+    internal static func assembleFinalSuccessScreen<Model: RootViewModelProtocol>(
+        parentModel: Model
+    ) -> some View {
+        ResultSuccessScreen(viewModel: ResultSuccessScreenViewModel(parentViewModel: parentModel))
+    }
+
+    internal static func assembleFinalDeclineScreen<Model: RootViewModelProtocol>(
+        parentModel: Model
+    ) -> some View {
+        ResultDeclineScreen(viewModel: ResultDeclineScreenViewModel(parentViewModel: parentModel))
+    }
+}
