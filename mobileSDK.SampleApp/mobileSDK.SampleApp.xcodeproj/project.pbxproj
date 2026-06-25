@@ -20,12 +20,15 @@
 		84CDC3E02910DAA100E3EB04 /* ThreeDSecureJsonModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CDC3DF2910DAA100E3EB04 /* ThreeDSecureJsonModels.swift */; };
 		84CDC3E22910E62D00E3EB04 /* ThreeDSecureScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CDC3E12910E62D00E3EB04 /* ThreeDSecureScreen.swift */; };
 		84CDC3E42911268000E3EB04 /* ExpandingTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CDC3E32911268000E3EB04 /* ExpandingTextView.swift */; };
+		98146229887DBACF54D14C92 /* libPods-EtoedtoSample.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A9047FD852D6EF4F5632FAD /* libPods-EtoedtoSample.a */; };
 		B3AB476A296BFF9F00B2EED5 /* RecipientInfoScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3AB4768296BFF9700B2EED5 /* RecipientInfoScreen.swift */; };
 		CED706FB2E9FF0050088AFFE /* ConfigIndex.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED706F92E9FF0050088AFFE /* ConfigIndex.swift */; };
 		CED706FC2E9FF0050088AFFE /* AppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED706FA2E9FF0050088AFFE /* AppConfig.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0A9047FD852D6EF4F5632FAD /* libPods-EtoedtoSample.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-EtoedtoSample.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		33EF30C23D173C9E32395DEB /* Pods-EtoedtoSample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EtoedtoSample.debug.xcconfig"; path = "Target Support Files/Pods-EtoedtoSample/Pods-EtoedtoSample.debug.xcconfig"; sourceTree = "<group>"; };
 		840304B428B74E7E00DE38D3 /* EtoedtoSample.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = EtoedtoSample.entitlements; sourceTree = "<group>"; };
 		8434FB4F28B338DB00814D93 /* SignatureUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignatureUtils.swift; sourceTree = "<group>"; };
 		845BB1D428B33DFA001C2A24 /* MainScreenState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenState.swift; sourceTree = "<group>"; };
@@ -40,6 +43,7 @@
 		84CDC3DF2910DAA100E3EB04 /* ThreeDSecureJsonModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreeDSecureJsonModels.swift; sourceTree = "<group>"; };
 		84CDC3E12910E62D00E3EB04 /* ThreeDSecureScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreeDSecureScreen.swift; sourceTree = "<group>"; };
 		84CDC3E32911268000E3EB04 /* ExpandingTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpandingTextView.swift; sourceTree = "<group>"; };
+		AA40B77FEB206A261836D821 /* Pods-EtoedtoSample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EtoedtoSample.release.xcconfig"; path = "Target Support Files/Pods-EtoedtoSample/Pods-EtoedtoSample.release.xcconfig"; sourceTree = "<group>"; };
 		B3AB4768296BFF9700B2EED5 /* RecipientInfoScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipientInfoScreen.swift; sourceTree = "<group>"; };
 		CED706F92E9FF0050088AFFE /* ConfigIndex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ConfigIndex.swift; path = ../mobileSDK.Facade/mobileSDK.Facade/Sources/Generated/ConfigIndex.swift; sourceTree = "<group>"; };
 		CED706FA2E9FF0050088AFFE /* AppConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppConfig.swift; path = ../mobileSDK.Facade/mobileSDK.Facade/Sources/Generated/AppConfig.swift; sourceTree = "<group>"; };
@@ -51,6 +55,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				752AF8352E44D63400D14658 /* EtoedtoSDK in Frameworks */,
+				98146229887DBACF54D14C92 /* libPods-EtoedtoSample.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -99,6 +104,7 @@
 				840304B428B74E7E00DE38D3 /* EtoedtoSample.entitlements */,
 				845FC81828AE153300C71288 /* mobileSDK.SampleApp */,
 				845FC82728AE157800C71288 /* Frameworks */,
+				D726F0C21232157EDFF1C412 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -137,6 +143,7 @@
 		845FC82728AE157800C71288 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0A9047FD852D6EF4F5632FAD /* libPods-EtoedtoSample.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -167,6 +174,16 @@
 			path = RecipientInfoScreen;
 			sourceTree = "<group>";
 		};
+		D726F0C21232157EDFF1C412 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				33EF30C23D173C9E32395DEB /* Pods-EtoedtoSample.debug.xcconfig */,
+				AA40B77FEB206A261836D821 /* Pods-EtoedtoSample.release.xcconfig */,
+			);
+			name = Pods;
+			path = ../Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -174,6 +191,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 845FC82428AE153400C71288 /* Build configuration list for PBXNativeTarget "EtoedtoSample" */;
 			buildPhases = (
+				359F840972D3B77F7620B9E4 /* [CP] Check Pods Manifest.lock */,
 				845FC81228AE153300C71288 /* Sources */,
 				845FC81328AE153300C71288 /* Frameworks */,
 				845FC81428AE153300C71288 /* Resources */,
@@ -219,7 +237,7 @@
 			);
 			mainGroup = 845FC80D28AE153300C71288;
 			packageReferences = (
-				752AF8332E44D63400D14658 /* XCLocalSwiftPackageReference "../" */,
+				752AF8332E44D63400D14658 /* XCLocalSwiftPackageReference ".." */,
 			);
 			productRefGroup = 845FC81728AE153300C71288 /* Products */;
 			projectDirPath = "";
@@ -241,6 +259,31 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		359F840972D3B77F7620B9E4 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-EtoedtoSample-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		845FC81228AE153300C71288 /* Sources */ = {
@@ -383,6 +426,7 @@
 		};
 		845FC82528AE153400C71288 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 33EF30C23D173C9E32395DEB /* Pods-EtoedtoSample.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -422,6 +466,7 @@
 		};
 		845FC82628AE153400C71288 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AA40B77FEB206A261836D821 /* Pods-EtoedtoSample.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -483,7 +528,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCLocalSwiftPackageReference section */
-		752AF8332E44D63400D14658 /* XCLocalSwiftPackageReference "../" */ = {
+		752AF8332E44D63400D14658 /* XCLocalSwiftPackageReference ".." */ = {
 			isa = XCLocalSwiftPackageReference;
 			relativePath = ../;
 		};
@@ -492,7 +537,7 @@
 /* Begin XCSwiftPackageProductDependency section */
 		752AF8342E44D63400D14658 /* EtoedtoSDK */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 752AF8332E44D63400D14658 /* XCLocalSwiftPackageReference "../" */;
+			package = 752AF8332E44D63400D14658 /* XCLocalSwiftPackageReference ".." */;
 			productName = EtoedtoSDK;
 		};
 /* End XCSwiftPackageProductDependency section */

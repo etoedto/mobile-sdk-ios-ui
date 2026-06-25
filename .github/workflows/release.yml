@@ -18,6 +18,9 @@ permissions:
 jobs:
   build-xcframework:
     runs-on: macos-latest
+    env:
+      LANG: en_US.UTF-8
+      LC_ALL: en_US.UTF-8
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -26,6 +29,9 @@ jobs:
         uses: maxim-lobanov/setup-xcode@v1
         with:
           xcode-version: latest-stable
+
+      - name: CocoaPods install (wires MsdkCore into the targets)
+        run: pod install
 
       - name: Resolve Swift packages
         run: xcodebuild -resolvePackageDependencies -workspace mobileSDK.xcworkspace -scheme etoedtoSDK

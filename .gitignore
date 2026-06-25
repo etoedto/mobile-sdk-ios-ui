@@ -97,3 +97,6 @@ package-lock.json
 
 # Built UI framework (published via GitHub Releases, not committed)
 /etoedtoSDK.xcframework
+
+# CocoaPods (regenerated via `pod install`; Podfile.lock IS committed)
+Pods/

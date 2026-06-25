@@ -1,0 +1,16 @@
+PODS:
+  - MsdkCore (0.15.0)
+
+DEPENDENCIES:
+  - MsdkCore (from `./MSDKCore/MsdkCore.podspec`)
+
+EXTERNAL SOURCES:
+  MsdkCore:
+    :path: "./MSDKCore/MsdkCore.podspec"
+
+SPEC CHECKSUMS:
+  MsdkCore: 6f9f997b89175f64e1dc87c2ad7818eea703e8c0
+
+PODFILE CHECKSUM: 04e163f78d4bc2fdf4f978d0c7bf1e11fa37ad52
+
+COCOAPODS: 1.16.2

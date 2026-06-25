@@ -9,6 +9,9 @@ on:
 jobs:
   validate:
     runs-on: macos-latest
+    env:
+      LANG: en_US.UTF-8
+      LC_ALL: en_US.UTF-8
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -22,6 +25,9 @@ jobs:
         uses: ruby/setup-ruby@v1
         with:
           bundler-cache: true
+
+      - name: CocoaPods install (wires MsdkCore into the targets)
+        run: pod install
 
       - name: Validate build
         run: bundle exec fastlane validate

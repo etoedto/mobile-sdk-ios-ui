@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A7DD2A23F264BF996D09936 /* libPods-etoedtoSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 34FBE7E79389811AA2A7A29C /* libPods-etoedtoSDK.a */; };
+		4A8DC8879327452444B343A8 /* AppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E6949BE909958607F85CDED /* AppConfig.swift */; };
 		840704CA28D8850600DBD249 /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840704C828D8850600DBD249 /* ContainerViewController.swift */; };
 		847EBAE9290BEC5F0080F99E /* RecurreInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847EBAE7290BEC5F0080F99E /* RecurreInfo.swift */; };
 		849C533528BF62C800C1CF71 /* EtoedtoSDK.h in Headers */ = {isa = PBXBuildFile; fileRef = 845507C8285B0463002BBFE0 /* EtoedtoSDK.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -33,6 +35,7 @@
 		849C534E28BF62C800C1CF71 /* PaymentMethodCardType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8421F8DF288EB9BA00B6EED2 /* PaymentMethodCardType.swift */; };
 		849C535128BF62C800C1CF71 /* libmobileSDK.UI.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 84BC13F1285208A3008814EB /* libmobileSDK.UI.a */; };
 		84CDC3E72911454100E3EB04 /* ThreeDSecureInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CDC3E52911454100E3EB04 /* ThreeDSecureInfo.swift */; };
+		9D0F3FEC54FC70D3AEC58B7C /* ConfigIndex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30680A61BF533F8F0C0FDB9D /* ConfigIndex.swift */; };
 		B3330B5B295B2B47004DA575 /* ThreeDSecurePageType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3330B59295B2B47004DA575 /* ThreeDSecurePageType.swift */; };
 		B34916762970128300D9844B /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = B349166E2970121B00D9844B /* libc++.tbd */; };
 		B34916772970128700D9844B /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = B34916702970124000D9844B /* libz.tbd */; };
@@ -45,8 +48,6 @@
 		B3D4E419299CC0C3007A1E2F /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3D4E411299CC04C007A1E2F /* AudioToolbox.framework */; };
 		B3D4E41A299CC0C8007A1E2F /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3D4E413299CC05F007A1E2F /* CoreMedia.framework */; };
 		B3D4E41B299CC0CC007A1E2F /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3D4E415299CC06C007A1E2F /* MobileCoreServices.framework */; };
-		CE6CEFEA2E01A039003251A2 /* AppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6CEFE62E01A039003251A2 /* AppConfig.swift */; };
-		CE6CEFEB2E01A039003251A2 /* ConfigIndex.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6CEFE72E01A039003251A2 /* ConfigIndex.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -90,7 +91,11 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		30680A61BF533F8F0C0FDB9D /* ConfigIndex.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConfigIndex.swift; path = mobileSDK.Facade/Sources/Generated/ConfigIndex.swift; sourceTree = "<group>"; };
+		34FBE7E79389811AA2A7A29C /* libPods-etoedtoSDK.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-etoedtoSDK.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6E6949BE909958607F85CDED /* AppConfig.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AppConfig.swift; path = mobileSDK.Facade/Sources/Generated/AppConfig.swift; sourceTree = "<group>"; };
 		755D06062E7C19F300B70736 /* etoedtoSDK-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "etoedtoSDK-Info.plist"; sourceTree = "<group>"; };
+		7A06558D2AFF384691FE794F /* Pods-etoedtoSDK.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-etoedtoSDK.debug.xcconfig"; path = "Target Support Files/Pods-etoedtoSDK/Pods-etoedtoSDK.debug.xcconfig"; sourceTree = "<group>"; };
 		840704C828D8850600DBD249 /* ContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
 		8421F8DF288EB9BA00B6EED2 /* PaymentMethodCardType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentMethodCardType.swift; sourceTree = "<group>"; };
 		8421F8E6288EBFA400B6EED2 /* PayInteractorWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayInteractorWrapper.swift; sourceTree = "<group>"; };
@@ -130,12 +135,21 @@
 		B3D4E411299CC04C007A1E2F /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.0.sdk/System/Library/Frameworks/AudioToolbox.framework; sourceTree = DEVELOPER_DIR; };
 		B3D4E413299CC05F007A1E2F /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.0.sdk/System/Library/Frameworks/CoreMedia.framework; sourceTree = DEVELOPER_DIR; };
 		B3D4E415299CC06C007A1E2F /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.0.sdk/System/iOSSupport/System/Library/Frameworks/MobileCoreServices.framework; sourceTree = DEVELOPER_DIR; };
-		CE6CEFE62E01A039003251A2 /* AppConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfig.swift; sourceTree = "<group>"; };
-		CE6CEFE72E01A039003251A2 /* ConfigIndex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigIndex.swift; sourceTree = "<group>"; };
+		C1E682D9CCD696A6E51C39CD /* Pods-etoedtoSDK.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-etoedtoSDK.release.xcconfig"; path = "Target Support Files/Pods-etoedtoSDK/Pods-etoedtoSDK.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		7594FE1B2E45590800A714F6 /* Resources */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Resources; sourceTree = "<group>"; };
+		7594FE1B2E45590800A714F6 /* Resources */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+			);
+			explicitFileTypes = {
+			};
+			explicitFolders = (
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,12 +167,23 @@
 				B3D4E41A299CC0C8007A1E2F /* CoreMedia.framework in Frameworks */,
 				B34916782970128C00D9844B /* MessageUI.framework in Frameworks */,
 				B3D4E419299CC0C3007A1E2F /* AudioToolbox.framework in Frameworks */,
+				0A7DD2A23F264BF996D09936 /* libPods-etoedtoSDK.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1E3BC511EE07DEE76F1FBE4A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				7A06558D2AFF384691FE794F /* Pods-etoedtoSDK.debug.xcconfig */,
+				C1E682D9CCD696A6E51C39CD /* Pods-etoedtoSDK.release.xcconfig */,
+			);
+			name = Pods;
+			path = ../Pods;
+			sourceTree = "<group>";
+		};
 		752AF8402E44DA5500D14658 /* MSDKCore */ = {
 			isa = PBXGroup;
 			children = (
@@ -250,6 +275,7 @@
 				B34916722970126700D9844B /* MessageUI.framework */,
 				B34916702970124000D9844B /* libz.tbd */,
 				B349166E2970121B00D9844B /* libc++.tbd */,
+				34FBE7E79389811AA2A7A29C /* libPods-etoedtoSDK.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -276,6 +302,9 @@
 				84BC13CF2852086E008814EB /* Products */,
 				84AFF7CF285208CD00E6F1DE /* Frameworks */,
 				85E3DD1A2FCA1D3B00803BBD /* Recovered References */,
+				6E6949BE909958607F85CDED /* AppConfig.swift */,
+				30680A61BF533F8F0C0FDB9D /* ConfigIndex.swift */,
+				1E3BC511EE07DEE76F1FBE4A /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -331,8 +360,6 @@
 		85E3DD1A2FCA1D3B00803BBD /* Recovered References */ = {
 			isa = PBXGroup;
 			children = (
-				CE6CEFE62E01A039003251A2 /* AppConfig.swift */,
-				CE6CEFE72E01A039003251A2 /* ConfigIndex.swift */,
 			);
 			name = "Recovered References";
 			sourceTree = "<group>";
@@ -355,6 +382,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 849C535528BF62C800C1CF71 /* Build configuration list for PBXNativeTarget "etoedtoSDK" */;
 			buildPhases = (
+				0CFDB34802DC0FDE551A1293 /* [CP] Check Pods Manifest.lock */,
 				849C533428BF62C800C1CF71 /* Headers */,
 				849C533728BF62C800C1CF71 /* Sources */,
 				849C534F28BF62C800C1CF71 /* Frameworks */,
@@ -432,6 +460,31 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		0CFDB34802DC0FDE551A1293 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-etoedtoSDK-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		849C533728BF62C800C1CF71 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -448,8 +501,6 @@
 				849C533E28BF62C800C1CF71 /* PayInteractorWrapper.swift in Sources */,
 				849C533F28BF62C800C1CF71 /* CardTypesManager.swift in Sources */,
 				84CDC3E72911454100E3EB04 /* ThreeDSecureInfo.swift in Sources */,
-				CE6CEFEA2E01A039003251A2 /* AppConfig.swift in Sources */,
-				CE6CEFEB2E01A039003251A2 /* ConfigIndex.swift in Sources */,
 				849C534128BF62C800C1CF71 /* PayDelegateProxy.swift in Sources */,
 				840704CA28D8850600DBD249 /* ContainerViewController.swift in Sources */,
 				849C534228BF62C800C1CF71 /* AdditionalField.swift in Sources */,
@@ -466,6 +517,8 @@
 				849C534D28BF62C800C1CF71 /* EtoedtoSDK.swift in Sources */,
 				849C534E28BF62C800C1CF71 /* PaymentMethodCardType.swift in Sources */,
 				B3AB475729641B0800B2EED5 /* CoreRecipientInfo.swift in Sources */,
+				4A8DC8879327452444B343A8 /* AppConfig.swift in Sources */,
+				9D0F3FEC54FC70D3AEC58B7C /* ConfigIndex.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -482,6 +535,7 @@
 /* Begin XCBuildConfiguration section */
 		849C535628BF62C800C1CF71 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7A06558D2AFF384691FE794F /* Pods-etoedtoSDK.debug.xcconfig */;
 			buildSettings = {
 				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -524,6 +578,7 @@
 		};
 		849C535728BF62C800C1CF71 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C1E682D9CCD696A6E51C39CD /* Pods-etoedtoSDK.release.xcconfig */;
 			buildSettings = {
 				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
 				CODE_SIGN_STYLE = Automatic;
