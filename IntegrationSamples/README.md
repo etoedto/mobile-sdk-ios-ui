@@ -1,4 +1,6 @@
-[![CocoaPods](https://img.shields.io/cocoapods/v/EtoedtoSDK_UI.svg?style=flat)](https://github.com/etoedto/paymentpage-sdk-ios-ui)
+[![Release](https://img.shields.io/github/v/release/etoedto/paymentpage-sdk-ios-ui)](https://github.com/etoedto/paymentpage-sdk-ios-ui/releases)
+[![Swift Package Manager](https://img.shields.io/badge/SPM-compatible-brightgreen.svg)](https://github.com/etoedto/paymentpage-sdk-ios-ui)
+[![Platform](https://img.shields.io/badge/platform-iOS-lightgrey.svg)](https://github.com/etoedto/paymentpage-sdk-ios-ui)
 
 Etoedto SDK UI for iOS
 ===========
