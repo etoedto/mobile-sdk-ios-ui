@@ -8,11 +8,11 @@
 
 Pod::Spec.new do |spec|
   spec.name         = "EtoedtoSDK_UI"
-  spec.version      = "3.10.0"
+  spec.version      = "3.10.1"
   spec.summary      = "Etoedto SDK with UI for iOS"
 
   spec.description  = "SDK for iOS is a software development kit for fast integration of the Etoedto payment solutions right in your mobile app for iOS."
-  spec.homepage     = "https://github.com/etoedto/paymentpage-sdk-ios-ui"
+  spec.homepage     = "https://github.com/etoedto/mobile-sdk-ios-ui"
   spec.license      = "MIT"
 
   spec.authors      = { "Etoedto" => "" }
@@ -20,7 +20,7 @@ Pod::Spec.new do |spec|
   spec.platform     = :ios
   spec.ios.deployment_target = "15.6"
 
-  spec.source       = { :http => "https://github.com/etoedto/paymentpage-sdk-ios-ui/releases/download/#{spec.version}/etoedtoSDK.xcframework.zip" }
+  spec.source       = { :http => "https://github.com/etoedto/mobile-sdk-ios-ui/releases/download/#{spec.version}/etoedtoSDK.xcframework.zip" }
 
   spec.ios.vendored_frameworks = 'etoedtoSDK.xcframework'
 

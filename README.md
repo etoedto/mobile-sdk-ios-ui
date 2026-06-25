@@ -1,7 +1,7 @@
-[![Build Status](https://github.com/etoedto/paymentpage-sdk-ios-ui/actions/workflows/release.yml/badge.svg)](https://github.com/etoedto/paymentpage-sdk-ios-ui/actions/workflows/release.yml)
-[![Release](https://img.shields.io/github/v/release/etoedto/paymentpage-sdk-ios-ui)](https://github.com/etoedto/paymentpage-sdk-ios-ui/releases)
-[![Swift Package Manager](https://img.shields.io/badge/SPM-compatible-brightgreen.svg)](https://github.com/etoedto/paymentpage-sdk-ios-ui)
-[![Platform](https://img.shields.io/badge/platform-iOS-lightgrey.svg)](https://github.com/etoedto/paymentpage-sdk-ios-ui)
+[![Build Status](https://github.com/etoedto/mobile-sdk-ios-ui/actions/workflows/release.yml/badge.svg)](https://github.com/etoedto/mobile-sdk-ios-ui/actions/workflows/release.yml)
+[![Release](https://img.shields.io/github/v/release/etoedto/mobile-sdk-ios-ui)](https://github.com/etoedto/mobile-sdk-ios-ui/releases)
+[![Swift Package Manager](https://img.shields.io/badge/SPM-compatible-brightgreen.svg)](https://github.com/etoedto/mobile-sdk-ios-ui)
+[![Platform](https://img.shields.io/badge/platform-iOS-lightgrey.svg)](https://github.com/etoedto/mobile-sdk-ios-ui)
 
 # Etoedto SDK UI for iOS
 
@@ -79,7 +79,7 @@ Listed below are the instructions on how to import a Etoedto library via Swift P
 #### Using Xcode
 
 1. In Xcode, select File > Add Package Dependencies.
-2. Enter the repository URL: `https://github.com/etoedto/paymentpage-sdk-ios-ui.git`
+2. Enter the repository URL: `https://github.com/etoedto/mobile-sdk-ios-ui.git`
 3. Select the version rule (recommend "Up to Next Major Version").
 4. Click Add Package.
 5. Select the EtoedtoSDK library and add it to your target.
@@ -90,13 +90,13 @@ Add the following to your Package.swift file:
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/etoedto/paymentpage-sdk-ios-ui.git", from: "3.10.0")
+    .package(url: "https://github.com/etoedto/mobile-sdk-ios-ui.git", from: "3.10.1")
 ],
 targets: [
     .target(
         name: "YourTarget",
         dependencies: [
-            .product(name: "EtoedtoSDK", package: "paymentpage-sdk-ios-ui")
+            .product(name: "EtoedtoSDK", package: "mobile-sdk-ios-ui")
         ]
     )
 ]
@@ -177,24 +177,24 @@ This section contains samples of payment form invocation code in Swift and Objec
 
 Here are the required parameters:
 
-- projectID — project (merchant) ID Etoedto assigned you
-- paymentID — payment ID, must be unique within the project
-- paymentAmount — payment amount in minor currency units
-- paymentCurrency — payment currency code according to ISO-4217 alpha-3
+- projectID - project (merchant) ID Etoedto assigned you
+- paymentID - payment ID, must be unique within the project
+- paymentAmount - payment amount in minor currency units
+- paymentCurrency - payment currency code according to ISO-4217 alpha-3
 
 Here are the optional parameters:
 
-- recurrentInfo — object with the details of COF purchase
-- paymentDescription — payment description (this parameter is available not only to the merchant, but also to the customer; if paymentDescription is specified in the request, it is visible to the customer in the payment form (in the dialog box containing information about the payment); if this parameter is not specified in the request, it is not visible to the customer)
-- customerID — customer ID
-- regionCode — customer country
-- action — action type (Sale (by default), Auth, Tokenize, or Verify;
-- token — card token
-- forcePaymentMethod — the identifier of the payment method which is opened to the customer without an option for the customer to select another payment method. The list of codes is provided in the [IDs of payment methods supported on Payment Page](en_PP__Paramaters_ForcePaymentMethod.html) section
-- hideSavedWallets — hiding or displaying saved payment instruments in the payment form. Possible values:
-  - `true` — saved payment instruments are hidden, they are not displayed in the payment form
-  - `false` — saved payment instruments are displayed in the payment form
-- hideScanningCards — hiding or displaying button to start card scanning flow
+- recurrentInfo - object with the details of COF purchase
+- paymentDescription - payment description (this parameter is available not only to the merchant, but also to the customer; if paymentDescription is specified in the request, it is visible to the customer in the payment form (in the dialog box containing information about the payment); if this parameter is not specified in the request, it is not visible to the customer)
+- customerID - customer ID
+- regionCode - customer country
+- action - action type (Sale (by default), Auth, Tokenize, or Verify;
+- token - card token
+- forcePaymentMethod - the identifier of the payment method which is opened to the customer without an option for the customer to select another payment method. The list of codes is provided in the [IDs of payment methods supported on Payment Page](en_PP__Paramaters_ForcePaymentMethod.html) section
+- hideSavedWallets - hiding or displaying saved payment instruments in the payment form. Possible values:
+  - `true` - saved payment instruments are hidden, they are not displayed in the payment form
+  - `false` - saved payment instruments are displayed in the payment form
+- hideScanningCards - hiding or displaying button to start card scanning flow
 
 4. Pack all the payment parameters into a string for signing:
 
